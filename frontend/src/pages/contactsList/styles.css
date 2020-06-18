@@ -1,0 +1,68 @@
+header input {
+  padding: 20px;
+  border-radius: 50px;
+  width: 65%;
+}
+
+#update, #exclude {
+  display: block;
+  margin: 25px auto 0 auto;
+  background-color: #649EFF;
+}
+
+#exclude {
+  background-color: #F25941;
+}
+
+a.newContact {
+  position: absolute;
+  right: 0;
+  background-color: #81C86B;
+}
+
+#contacts {
+  position: relative;
+}
+
+#contacts ul {
+  float: left;
+}
+
+#contactsList, #contactProperties {
+  border: solid #B2B2B2 1px;
+  max-height: 440px;
+  overflow: scroll;
+  border-radius: 8px;
+  padding: 30px;
+  margin-right: 20px;
+  width: 65%;
+  box-shadow: #0006 0 0 10px;
+  background-color: #f0f0f5;
+}
+
+#contactsList li {
+  background-color: #c0c0ce;
+  padding: 10px 20px;
+  border-radius: 8px;
+  line-height: 25px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all .8s;
+}
+
+#contactsList li:hover {
+  box-shadow: #0006 0 0 10px;
+}
+
+#contactsList li:nth-child(even) {
+  background-color: #d0d0fe;
+}
+
+#contactProperties {
+  position: absolute;
+  right: 0;
+  line-height: 40px;
+  margin-right: 0;
+  overflow: auto;
+  width: 33%;
+}

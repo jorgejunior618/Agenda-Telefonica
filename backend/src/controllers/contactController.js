@@ -1,9 +1,8 @@
 const configDb = require('../config/database');
 
-
 exports.read = async (req, res) => {
   const { rows } = await configDb
-  .query("Select * from Contacts");
+  .query("SELECT * FROM Contacts ORDER BY name ASC");
   return res.json(rows);
 }
 
@@ -15,9 +14,18 @@ exports.create = async (req, res) => {
     "INSERT INTO Contacts (name, surname, phone, email) VALUES($1, $2, $3, $4)",
     [name, surname, phone, email]
     );
+
+  const { rows, rowCount } = await configDb
+  .query(
+    "SELECT * FROM Contacts",
+    []
+  );
+
+  const contact = rows[rowCount-1];
+
   return res.json({
     success: "Contact successfully created.",
-    contact: { name, surname, phone, email }
+    contact,
   });
 }
 
@@ -36,10 +44,10 @@ exports.update = async (req, res) => {
   .query(
     `Update Contacts set name = $1, surname = $2, phone = $3, email = $4 where id = $5`,
     [
-      name || contact.name,
-      surname || contact.surname,
-      phone || contact.phone,
-      email || contact.email,
+      name,
+      surname,
+      phone,
+      email,
       id
     ]
   );
@@ -48,7 +56,7 @@ exports.update = async (req, res) => {
 }
 
 exports.delete = async (req,res) => {
-  const { id } = req.query;
+  const { id } = req.params;
 
   const response = await configDb
   .query(

@@ -1,0 +1,40 @@
+header #actions {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
+button#save {
+  background-color: #81C86B;
+}
+
+button#cancel {
+  background-color: #F25941;
+}
+
+#properties {
+  border: solid #B2B2B2 1px;
+  border-radius: 8px;
+  padding: 30px;
+  width: 65%;
+  box-shadow: #0006 0 0 10px;
+  background-color: #f0f0f5;
+}
+
+#properties li {
+  border: solid #000 1px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  padding: 20px;
+  position: relative;
+  background-color: #fff;
+}
+
+#properties li input {
+  border: none;
+  border-bottom: solid #B2B2B2 1px;
+  width: 68%;
+  position: absolute;
+  background: none;
+  right: 20px;
+}
