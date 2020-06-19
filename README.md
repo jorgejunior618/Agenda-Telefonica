@@ -5,7 +5,7 @@
 
 <p align="center"> 
   <a aria-label="React Version" href="https://github.com/facebook/react-native">
-    <img src="https://img.shields.io/badge/react_native-informational?logo=react"></img>
+    <img src="https://img.shields.io/badge/react-informational?logo=react"></img>
   </a>
 </p>
 
