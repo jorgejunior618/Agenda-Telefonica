@@ -21,6 +21,6 @@ Após o carregamento, o React abrirá a aplicação em seu navegadro padrão na 
 
 ![demo](demo/demo.gif)
 
-Demonstração do comportamento do bonaco de dados da aplicação:
+Demonstração do comportamento do banco de dados da aplicação:
 
 ![demo](demo/demodb.gif)
