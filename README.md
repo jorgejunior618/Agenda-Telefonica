@@ -19,15 +19,8 @@ yarn start
 
 Após o carregamento, o React abrirá a aplicação em seu navegadro padrão na pagina  `localhost:3000`
 
-<div align="center">
-<table border="0" > 
-  <tr>
-     <td>
-       <p>
-        <img src="demo.gif">
-       </p>
-     </td>
-  </tr>
- </table>
-</div>
+![demo](demo/demo.gif)
 
+Demonstração do comportamento do bonaco de dados da aplicação:
+
+![demo](demo/demodb.gif)
