@@ -47,7 +47,7 @@ export default function ContactsList() {
     <form onSubmit={handleUpdateContact}>
     <header>
       <div className="container">
-        <h1><Link to="">←</Link> {`${oldName} ${oldSurname}`} </h1>
+        <h1>{`${oldName} ${oldSurname}`} </h1>
         <div id="actions">
           <button onClick={handleCancel} id="cancel">Cancelar</button>
           <button type="submit" id="save">Salvar</button>
@@ -59,6 +59,7 @@ export default function ContactsList() {
       <li>
         <label htmlFor="name">Nome:</label>
         <input
+          required
           placeholder="Digite o Nome"
           type="text"
           name="name"
@@ -83,6 +84,7 @@ export default function ContactsList() {
       <li>
         <label htmlFor="phone">Telefone:</label>
         <input
+          required
           placeholder="Digite o Telefone"
           type="tel"
           name="phone"

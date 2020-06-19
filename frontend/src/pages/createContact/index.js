@@ -40,7 +40,7 @@ export default function ContactsList() {
     <form onSubmit={handleCreateContact}>
     <header>
       <div className="container">
-        <h1><Link to="">←</Link> Novo Contato</h1>
+        <h1>Novo Contato</h1>
         <div id="actions">
           <button onClick={handleCancel} id="cancel">Cancelar</button>
           <button type="submit" id="save">Salvar</button>
