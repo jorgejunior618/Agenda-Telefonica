@@ -31,13 +31,13 @@ a.newContact {
 #contactsList, #contactProperties {
   border: solid #B2B2B2 1px;
   max-height: 440px;
-  overflow: scroll;
+  overflow-y: scroll;
   border-radius: 8px;
   padding: 30px;
   margin-right: 20px;
   width: 65%;
   box-shadow: #0006 0 0 10px;
-  background-color: #f0f0f5;
+  background-color: #F0F0F5;
 }
 
 #contactsList li {
@@ -65,4 +65,9 @@ a.newContact {
   margin-right: 0;
   overflow: auto;
   width: 33%;
+}
+
+#contacts #contactProperties li span {
+  color: #F0F0F5;
+  transition: all .4s;
 }

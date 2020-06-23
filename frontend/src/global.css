@@ -24,7 +24,9 @@ a, button {
   
   background-color: #fff;
   padding: 20px;
+  border: none;
   border-radius: 50px;
+  box-shadow: #000 0 0 8px;
   margin-left: 20px;
   font-size: 18px;
   line-height: 20px;
@@ -32,7 +34,7 @@ a, button {
   cursor: pointer;
   color: currentColor;
   text-decoration: none;
-  transition: all .8s;
+  transition: all .5s;
 }
 
 li.active {
@@ -41,7 +43,6 @@ li.active {
 }
 
 a:hover, button:hover {
-  box-shadow: #000 0 0 8px;
   filter: brightness(93%);
 }
 

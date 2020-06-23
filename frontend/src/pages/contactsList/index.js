@@ -3,8 +3,6 @@ import { Link, useHistory } from 'react-router-dom';
 
 import api from '../../services/api';
 import './styles.css';
-import scripts from './script'
-
 
 export default function ContactsList() {
   const [contacts, setContacts] = useState([]);
@@ -15,23 +13,6 @@ export default function ContactsList() {
       setContacts(response.data)
     })
   }, []);
-
-  async function handleDelete() {
-    const [exclude] =  document.querySelectorAll("#contactProperties button");
-
-    const id = Number(exclude.getAttribute('key'));
-    if(id) {
-      try {
-        await api.delete(`contacts/${id}`);
-        alert('Contato excluido com sucesso.');
-        setContacts(contacts.filter(contact => contact.id !== id))
-      } catch (err) {
-        alert('Ocorreu um erro ao deletar o contato, tente novamente.');
-      }
-    } else {
-      alert('Selecione o contato que deseja remover.');
-    }
-  }
 
   function handleUpdate(){
     const [update] =  document.querySelectorAll("#contactProperties button");
@@ -51,6 +32,58 @@ export default function ContactsList() {
       alert('Selecione o contato que deseja alterar.');
     }
   }
+  async function handleDelete() {
+    const [exclude] =  document.querySelectorAll("#contactProperties button");
+
+    const id = Number(exclude.getAttribute('key'));
+    if(id) {
+      try {
+        await api.delete(`contacts/${id}`);
+        alert('Contato excluido com sucesso.');
+        setContacts(contacts.filter(contact => contact.id !== id));
+
+        const displayProperties = document.querySelectorAll("#contactProperties li span");
+        displayProperties.forEach((propertie) => {
+          propertie.style.color = '#F0F0F5';
+        });
+      } catch (err) {
+        alert('Ocorreu um erro ao deletar o contato, tente novamente.');
+      }
+    } else {
+      alert('Selecione o contato que deseja remover.');
+    }
+  }
+
+
+  function activateItem(element) {
+    const contact = element.currentTarget;
+    const contactProperties = contact.querySelectorAll("span");
+    const id = contactProperties[contactProperties.length-1].innerText;
+
+    const contactsList = document.querySelectorAll("#contactsList li");
+    const displayProperties = document.querySelectorAll("#contactProperties li span");
+    const buttons =  document.querySelectorAll("#contactProperties button");
+
+    contactsList.forEach(contact => {
+      contact.className = '';
+    });
+    contact.className = 'active';
+
+    displayProperties.forEach((propertie) => {
+      propertie.style.color = '#F0F0F5';
+    });
+
+    buttons.forEach(button => {
+      button.setAttribute('key', id);
+    });
+
+    setTimeout( () => {
+      displayProperties.forEach((propertie, index) => {
+        propertie.innerText = contactProperties[index].innerText;
+        propertie.style.color = '#000';
+      });
+    }, 400);
+  }
   
   return (
     <div>
@@ -64,9 +97,12 @@ export default function ContactsList() {
       <ul id="contactsList">
 
         {contacts.map(contact => (
-          <li key={contact.id}>
-          <span>{contact.name}</span> <span>{contact.surname}</span><br/>
-          telefone: <span>{contact.phone}</span> - email: <span>{contact.email||'---'}</span>
+          <li onClick={(event) => activateItem(event)} key={contact.id}>
+          <span>{contact.name} </span>
+          <span>{contact.surname}</span>
+          <br/>
+          telefone: <span>{contact.phone}</span> - 
+          email: <span>{contact.email||'---'}</span>
           <span style={{display: "none"}}>{contact.id}</span>
         </li>
         ))}
@@ -84,7 +120,6 @@ export default function ContactsList() {
 
       </ul>
     </section>
-    <script src={scripts}></script>
     </div>
   );
 }
