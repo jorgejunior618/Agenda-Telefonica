@@ -4,7 +4,7 @@
 <p align="center" style="text-align: center;">Usando postgres e nodeJs na base de dados.</p>
 
 <p align="center"> 
-  <a aria-label="React Version" href="https://github.com/facebook/react-native">
+  <a aria-label="React Version" href="https://github.com/facebook/react">
     <img src="https://img.shields.io/badge/react-informational?logo=react"></img>
   </a>
 </p>
